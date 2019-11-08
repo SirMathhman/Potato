@@ -1,8 +1,8 @@
-with Internal.print
+with Internal.write
 
 var x = 5
 x = 6
-print(x)
+write(x)
 
 val y = 10
-print(y)
+write(y)

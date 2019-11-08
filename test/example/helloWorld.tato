@@ -1,1 +1,1 @@
-Internal.print("Hello World!")
+Internal.writeLine("Hello World!")

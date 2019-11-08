@@ -12,6 +12,8 @@ CharSequence<T&CharSequence>(int[] data) = {
   size = data.size
 
   indexOf(int value) int = {
+    data.join(populate(0, size))
+      .filter(()
     populate(0, size)
       .map((index) => [int, int] = [index, data[index]])
       .filter()

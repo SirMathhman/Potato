@@ -1,12 +1,16 @@
-Point[x : float, y : float] = {
-  distance[Point other] => float = sqrt(
-    pow(other.x, 2) +
-    pow(other.y, 2)
+Point[x float, y float] = {
+  val ^[] = Point(0, 0)
+  $ = {
+    $x
+    $y
+  }
+
+  distance[other *Point] => float = sqrt(
+    pow(&other.x, 2) +
+    pow(&other.y, 2)
   )
 }
 
-single Origin&Point(0, 0)
-
 val point = Point(3, 4)
-val distance = point.distance(Origin)
+val distance = point.distance(Point)
 print(distance)

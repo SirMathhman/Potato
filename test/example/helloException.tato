@@ -2,4 +2,5 @@ with Internal.print
 
 attempt = throw "Oh no!"
 
-try attempt() catch(value) print(value)
+try attempt()
+catch(value) print(value)

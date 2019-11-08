@@ -2,13 +2,13 @@ empty = {
 }
 empty()
 
-with Internal.print
+with Internal.write
 
-singleParameter[string value] = print(value)
+singleParameter[value string] = write(value)
 singleParameter("A function with one parameter!")
 
-doubleParameter[value0 string, value1 string] = print("Hello " + value0 + value1 + "!")
+doubleParameter[value0 string, value1 string] = write("Hello " + value0 + value1 + "!")
 doubleParameter("Gavin", "Bromberg")
 
 returnFunction => string = "stuff"
-print(returnFunction())
+write(returnFunction())
