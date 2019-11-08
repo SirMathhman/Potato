@@ -1,0 +1,24 @@
+Bottle = {
+  $[] = {}
+}
+
+BottleCollection[list *List<Bottle>] = {
+    @[size int] = {
+      (Populator.range(size, 0)
+        .map((value int) => *(Bottle)))
+    }
+
+    pop = list.pop
+    size = list.size
+
+    implicit hasNext => bool = !list.empty
+}
+
+var collection = BottleCollection(99)
+while(collection){
+  Internal.write(collection.size)
+  val bottle = collection.pop
+  Internal.write("bottles... then we have ")
+  Internal.write(collection.size)
+  Internal.writeLine("bottles")
+}
