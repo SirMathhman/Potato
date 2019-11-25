@@ -1,0 +1,3 @@
+val native ElementNode = {
+  var native innerHTML;
+}

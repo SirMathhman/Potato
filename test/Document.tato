@@ -1,0 +1,3 @@
+val native<"document"> Document = {
+  val native getElementById = def[id string] => ElementNode = ???;
+}
