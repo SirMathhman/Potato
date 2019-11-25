@@ -1,4 +1,0 @@
-StringBuilder(string value) = {
-  size = value.size
-  + ()
-}

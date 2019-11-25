@@ -1,8 +1,0 @@
-with Internal.print
-
-var x = 5
-x = 6
-print(x)
-
-val y = 10
-print(y)

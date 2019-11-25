@@ -1,8 +1,0 @@
-with Internal.write
-
-var x = 5
-x = 6
-write(x)
-
-val y = 10
-write(y)

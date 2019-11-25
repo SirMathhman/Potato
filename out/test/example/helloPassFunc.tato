@@ -1,5 +1,0 @@
-doSomething = Internal.print("Something happened!")
-
-performAFunction[() aFunction] = aFunction()
-
-performAFunction(doSomething)

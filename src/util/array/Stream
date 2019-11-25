@@ -1,5 +1,0 @@
-Stream<T>[T[] content] = {
-  forEach[(T t) func] = {
-  
-  }
-}
