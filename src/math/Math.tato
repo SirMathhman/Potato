@@ -1,0 +1,4 @@
+native single val Math = [] => Math {
+  native val pow = [a float, b float] => float = ???
+  return Math.type.new();
+}

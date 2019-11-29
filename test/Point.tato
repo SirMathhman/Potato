@@ -1,0 +1,30 @@
+with Math.pow;
+
+val Point = [x float, y float] => Point = {
+  val getX = [] => float = {
+    return x;
+  }
+
+  val getY = [] => float = {
+    return y;
+  }
+
+  val distance = [other Point] => float = {
+    val xDelta = x - other.getX();
+    val yDelta = y - other.getY();
+    val xSquared = Math.pow(xDelta, 2f);
+    val ySquared = Math.pow(yDelta, 2f);
+    return Math.pow(xSquared + ySquared, 0.5f);
+  }
+
+  return Point.type.new(x, y);
+}
+
+single val Origin = [] => Point = {
+  return Point(0f, 0f);
+}
+
+val a = Point(3f, 4f);
+val b = Origin();
+val dist = a.distance(b);
+# dist -> 5f

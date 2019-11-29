@@ -1,0 +1,38 @@
+val Optional = <T>[value T] => Optional<T> {
+  val get = [] => T = {
+    return value;
+  }
+
+  val isEmpty = [] => bool = {
+    return value == null;
+  }
+
+  val isPresent = [] => bool = {
+    return !isEmpty();
+  }
+
+  val ifPresent = [action [value T] => void] => bool = {
+    if(isPresent()) {
+      action(value);
+    }
+    return isPresent();
+  }
+
+  val map = <R>[mapper <R>[value T] => R] => Optional<R> = {
+    if(isPresent()) {
+      return Optional<R>(mapper(value));
+    } else {
+      return EmptyOptional<R>();
+    }
+  }
+
+  val flatMap = <R>[mapper <R>[value T] => Optional<R>] => Optional<R> = {
+    return mapper(value);
+  }
+  
+  return Optional.type.new(value);
+}
+
+val EmptyOptional = <T>[] => Optional<T> {
+  return Optional<T>(null);
+}
