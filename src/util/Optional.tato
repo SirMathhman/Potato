@@ -27,9 +27,13 @@ val Optional = <T>[value T] => Optional<T> {
   }
 
   val flatMap = <R>[mapper <R>[value T] => Optional<R>] => Optional<R> = {
-    return mapper(value);
+    if(isPresent()) {
+      return mapper(value);
+    } else {
+      return EmptyOptional();
+    }
   }
-  
+
   return Optional.type.new(value);
 }
 
