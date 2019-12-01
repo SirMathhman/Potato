@@ -1,3 +1,0 @@
-native single val Internal = {
-  native val write = [value string] => void = ???
-}
