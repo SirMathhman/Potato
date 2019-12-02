@@ -1,0 +1,184 @@
+Internal.write("Hello World\n");
+
+//cannot change the value of x (immutable)
+val x = 10;
+
+//can change the value of y (mutable)
+var y = 20;
+
+//operations supported (+, -, *, /, %)
+val a = x + y;
+
+
+
+//array of size 3
+val array = [3, 2, 1];
+
+//two ways to set the value
+//version 0, use the native method Array_set
+Array_set(array, 0, 5);
+
+//version 1, use the syntax (will be implemented later)
+array[0] = 5;
+
+
+//function with no return type and no parameters
+val doStuff = [] => void :{
+  Internal.write("Stuff happened!");
+}
+
+//call the function
+doStuff();
+
+
+//function with a parameter
+val doMoreStuff = [message string] => void :{
+  Internal.write(message);
+}
+
+//call the function
+doMoreStuff("Things");
+
+
+
+
+
+
+
+
+
+
+/*imports
+  single imports do not have a *, ex.
+
+  with Internal.write;
+
+  can import all members of a structure with *
+*/
+with Math.*;
+
+/*
+All functions are objects...
+In this scenario, the `Point` object is also a
+function called `Point`. The function returns a new
+instance of Point.
+
+It is common to refer to these things as "functions"
+and "objects" based on their responsibilities,
+however they are really just structures.
+*/
+val Point = [x float, y float] => Point :{
+  /*
+    getX is a substructure of Point.
+    getX can also be referenced from Point.
+    getX can also be written as:
+
+    val getX = [] => float :{
+      return x;
+    }
+
+    but in reality, that option would be too verbose,
+    would cloud readability, and would cost development time.
+    The shown option is far more intuitive, and promotes
+    the design of the language more.
+  */
+  val getX =: x;
+  val getY =: y;
+
+  val distance = [other Point] :{
+    val deltaX = x - other.getX();
+    val deltaY = y - other.getY();
+    val squaredX = pow(deltaX, 2);
+    val squaredY = pow(deltaY, 2);
+    return sqrt(squaredX + squaredY);
+  }
+}
+
+/*
+This is how overloading constructors are performed.
+Two structures cannot have the same name, so the following cannot be done
+
+val Point = [x int, y int] => Point;
+val Point = [] => Point;
+
+This does not make sense because structures are variables
+and all variable names must be unique. Additionally,
+this promotes better naming because all constructors of objects
+will have unique names. It is highly probable that there are issues
+caused by the lack of parameters, for example:
+
+Socket socket = new Socket();
+
+vs.
+
+Socket socket = new Socket(1);
+
+in Java. It is wiser to do this, and already this practice is performed,
+through the idea of factory methods.
+(static methods in Java that make the instance of
+the class that they are in.)
+
+Singletons are also useful because they make exactly one instance.
+In object-oriented programming, it is more preferred to use Singletons
+as opposed to a static reference because of testing and globalization issues.
+
+*/
+single val Origin ==> Point : Point(0, 0);
+
+val point = Point(3, 4);
+point.distance(Origin); //equals 5
+
+
+
+
+/*
+All structures have a header. The header indicates the properties of the structure.
+For example:
+
+val saySomething = [message string] => void :{
+  ...
+}
+
+The header of this structure is [message string] => void
+This header tells us that the structure accepts one parameter.
+
+message - is the name of the parameter
+string - is the type of the parameter
+
+Types of parameters can be primitives (int, string, float, short, double, uint)
+The return type is "void" which means the function doesn't return anything.
+*/
+
+/*
+We can specify a structure to pass as a parameter by putting in a structure header
+as the parameter type.
+*/
+val printMessageMaker = [messageMaker [] => string] :{
+  Internal.write(messageMaker());
+}
+
+/*
+This is why all structures/functions/objects are variables and are defined.
+*/
+val messageMaker ==> string : "Hello World!";
+printMessageMaker(messageMaker);
+
+
+
+
+
+
+/*
+Enums
+*/
+
+
+val Color = [red int, green int, blue int] => Color {
+  val getRed =: red;
+  val getGreen =: green;
+  val getblue =: blue;
+}
+
+val Red = []#Color(255, 0, 0);
+val Green = []#Color(0, 255, 0);
+val Blue = []#Color(0, 0, 255);
