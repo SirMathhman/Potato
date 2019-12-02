@@ -1,0 +1,16 @@
+val Vehicle ==> Vehicle :{
+  var getName ==> string;
+}
+
+val Car = []#Vehicle => Vehicle :{
+  val uuid = 4820573820;
+  getName =: "Lamborghini Huracan";
+}
+
+val Boat = []#Vehicle => Vehicle :{
+  val uuid = 1028478018;
+  getName =: "My Nice Yacht";
+}
+
+val getAVehicle = [] => Vehicle : Math.random() > 0.5 ? Car() : Boat();
+Internal.write(getAVehicle().getName());

@@ -1,0 +1,21 @@
+with Internal.write;
+with Math.*;
+
+val Point = [x float, y float] => Point :{
+  val getX =: x;
+  val getY =: y;
+  val distance = [other Point] :{
+    val deltaX = x - other.x;
+    val deltaY = y - other.y;
+    val squaredX = pow(deltaX, 2);
+    val squaredY = pow(deltaY, 2);
+    return sqrt(squaredX + squaredY);
+  }
+}
+
+single val Origin ==> Point : Point(0, 0);
+
+val a = Point(3, 4);
+val b = Origin();
+val c = a.distance(b);
+Internal.write(c);

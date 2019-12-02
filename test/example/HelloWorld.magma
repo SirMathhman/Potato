@@ -1,0 +1,90 @@
+Internal.write("Hello World\n");
+
+val x = 10;
+var y = 20;
+
+val a = x + y;
+
+val array = [3, 2, 1];
+Array_set(array, 0, 5);
+array[0] = 5;
+
+
+
+val doStuff = [] => void :{
+  Internal.write("Stuff happened!");
+}
+
+doStuff();
+
+val doMoreStuff = [message string] => void :{
+  Internal.write(message);
+}
+
+doStuffStuff("Things");
+
+
+
+
+
+
+
+
+
+
+with Math.*;
+
+val Point = [x float, y float] => Point :{
+  val getX =: x;
+  val getY =: y;
+  val distance = [other Point] :{
+    val deltaX = x - other.x;
+    val deltaY = y - other.y;
+    val squaredX = pow(deltaX, 2);
+    val squaredY = pow(deltaY, 2);
+    return sqrt(squaredX + squaredY);
+  }
+}
+
+single val Origin ==> Point : Point(0, 0);
+
+Point(3, 4).distance(Origin) => 5
+
+
+
+
+
+
+
+
+val printMessageMaker = [messageMaker [] => string] :{
+  Internal.write(messageMaker());
+}
+
+val messageMaker ==> string : "Hello World!";
+printMessageMaker(messageMaker);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+val Color = [red int, green int, blue int] => Color {
+  val getRed =: red;
+  val getGreen =: green;
+  val getblue =: blue;
+}
+
+val Red = []#Color(255, 0, 0);
+val Green = []#Color(0, 255, 0);
+val Blue = []#Color(0, 0, 255);

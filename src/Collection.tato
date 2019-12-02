@@ -1,0 +1,8 @@
+val Collection = <T, C#Collection<T>[elements Array<T>] => C :{
+  var add = [element T] => bool;
+  var get = [index int] => T;
+}
+
+val Collections = {
+  priva e
+}

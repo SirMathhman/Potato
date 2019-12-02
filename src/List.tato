@@ -1,0 +1,7 @@
+val List = <T>[elements Array<T>] => List<T> :{
+  var add = [element T] =>
+}
+
+val Lists = {
+
+}
