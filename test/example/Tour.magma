@@ -176,7 +176,7 @@ Enums
 val Color = [red int, green int, blue int] => Color {
   val getRed =: red;
   val getGreen =: green;
-  val getblue =: blue;
+  val getBlue =: blue;
 }
 
 val Red = []#Color(255, 0, 0);
